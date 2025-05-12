@@ -13,10 +13,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
+    <div class="sakura-container"></div>
+    <div class="starry-bg"></div>
+    <div class="scroll-progress"></div>
     <header>
         <h1>🚀 Практичен План за Енергиен Мениджмънт: 4 Месеца</h1>
     </header>
     <nav aria-label="Main navigation">
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <div class="overlay"></div>
         <ul>
             <li><a href="#key-parameters" aria-current="page">📊 Ключови Параметри</a></li>
             <li><a href="#daily-structure">Базова Дневна Структура</a></li>
@@ -26,6 +31,7 @@
             <li><a href="#afternoon-dip">Следобеден Спад</a></li>
             <li><a href="#management-systems">Минимално Инвазивни Системи за Управление</a></li>
             <li><a href="#weekly-planning">🛒 Седмично Планиране</a></li>
+            <li><a href="#energy-tracker">🔋 Енергиен Тракър</a></li>
         </ul>
     </nav>
     <main>
@@ -34,8 +40,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Фактор</th>
-                        <th scope="row">Реалност</th>
+                        <th scope="col">Фактор</th>
+                        <th scope="col">Реалност</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,15 +75,31 @@
         <section id="daily-structure">
             <h2>Базова Дневна Структура</h2>
             <div class="image-container">
-                <div class="image-placeholder">
-                    Дневна структура:<br>
-                    8:45 - Събуждане<br>
-                    9:00-12:00 Сутрешен продуктивен блок<br>
-                    12:00-13:00 Превантивна стратегия срещу следобеден спад<br>
-                    13:00-17:00 Управление на следобедния риск<br>
-                    17:00-19:30 Възстановяване на енергията<br>
-                    19:30-23:00 Вечерен продуктивен блок<br>
-                    23:00+ Подготовка за сън
+                <input type="checkbox" class="modal-toggle" id="modal-daily-structure">
+                <label for="modal-daily-structure" class="image-placeholder" aria-label="Open daily structure preview">
+                    <div class="preview-content">
+                        <svg viewBox="0 0 100 100" class="preview-icon">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--primary)" stroke-width="4"/>
+                            <path d="M30 50H70M50 30V70" stroke="var(--primary)" stroke-width="4"/>
+                        </svg>
+                        <span>Дневна структура (Кликни за преглед)</span>
+                    </div>
+                </label>
+                <div class="modal">
+                    <label class="modal-overlay" for="modal-daily-structure"></label>
+                    <div class="modal-content">
+                        <label for="modal-daily-structure" class="modal-close" aria-label="Close modal">✖</label>
+                        <h3>Дневна Структура</h3>
+                        <p>
+                            8:45 - Събуждане<br>
+                            9:00-12:00 Сутрешен продуктивен блок<br>
+                            12:00-13:00 Превантивна стратегия срещу следобеден спад<br>
+                            13:00-17:00 Управление на следобедния риск<br>
+                            17:00-19:30 Възстановяване на енергията<br>
+                            19:30-23:00 Вечерен продуктивен блок<br>
+                            23:00+ Подготовка за сън
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -87,10 +109,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Добавка</th>
-                        <th scope="row">Дозировка</th>
-                        <th scope="row">Време</th>
-                        <th scope="row">Цел</th>
+                        <th scope="col">Добавка</th>
+                        <th scope="col">Дозировка</th>
+                        <th scope="col">Време</th>
+                        <th scope="col">Цел</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -130,10 +152,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Ситуация</th>
-                        <th scope="row">Добавка</th>
-                        <th scope="row">Дозировка</th>
-                        <th scope="row">Действие</th>
+                        <th scope="col">Ситуация</th>
+                        <th scope="col">Добавка</th>
+                        <th scope="col">Дозировка</th>
+                        <th scope="col">Действие</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -203,8 +225,8 @@
             <table>
                 <thead>
                     <tr>
-                     <th scope="row">Tърсете</th>
-                        <th scope="row">Избягвайте</th>
+                        <th scope="col">Търсете</th>
+                        <th scope="col">Избягвайте</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -237,10 +259,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Техника</th>
-                        <th scope="row">Продължителност</th>
-                        <th scope="row">Изпълнение</th>
-                        <th scope="row">Ефект</th>
+                        <th scope="col">Техника</th>
+                        <th scope="col">Продължителност</th>
+                        <th scope="col">Изпълнение</th>
+                        <th scope="col">Ефект</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -274,18 +296,33 @@
         <section id="afternoon-dip">
             <h2>Следобеден Спад</h2>
             <div class="image-container">
-                <div class="image-placeholder">
-                    Диаграма за превенция на следобеден спад
+                <input type="checkbox" class="modal-toggle" id="modal-afternoon-prevention">
+                <label for="modal-afternoon-prevention" class="image-placeholder" aria-label="Open afternoon prevention preview">
+                    <div class="preview-content">
+                        <svg viewBox="0 0 100 100" class="preview-icon">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--primary)" stroke-width="4"/>
+                            <path d="M30 50H70M50 30V70" stroke="var(--primary)" stroke-width="4"/>
+                        </svg>
+                        <span>Диаграма за превенция на следобеден спад (Кликни за преглед)</span>
+                    </div>
+                </label>
+                <div class="modal">
+                    <label class="modal-overlay" for="modal-afternoon-prevention"></label>
+                    <div class="modal-content">
+                        <label for="modal-afternoon-prevention" class="modal-close" aria-label="Close modal">✖</label>
+                        <h3>Превенция на Следобедния Спад</h3>
+                        <p>Диаграма за превантивни действия срещу следобедния спад (12:00-13:00).</p>
+                    </div>
                 </div>
             </div>
             <h3>Превенция на Следобедния Спад (12:00-13:00)</h3>
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Интервенция</th>
-                        <th scope="row">Продължителност</th>
-                        <th scope="row">Детайли</th>
-                        <th scope="row">Ефект</th>
+                        <th scope="col">Интервенция</th>
+                        <th scope="col">Продължителност</th>
+                        <th scope="col">Детайли</th>
+                        <th scope="col">Ефект</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -316,18 +353,33 @@
                 </tbody>
             </table>
             <div class="image-container">
-                <div class="image-placeholder">
-                    Диаграма за спешен протокол при енергиен спад
+                <input type="checkbox" class="modal-toggle" id="modal-emergency-protocol">
+                <label for="modal-emergency-protocol" class="image-placeholder" aria-label="Open emergency protocol preview">
+                    <div class="preview-content">
+                        <svg viewBox="0 0 100 100" class="preview-icon">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--primary)" stroke-width="4"/>
+                            <path d="M30 50H70M50 30V70" stroke="var(--primary)" stroke-width="4"/>
+                        </svg>
+                        <span>Диаграма за спешен протокол при енергиен спад (Кликни за преглед)</span>
+                    </div>
+                </label>
+                <div class="modal">
+                    <label class="modal-overlay" for="modal-emergency-protocol"></label>
+                    <div class="modal-content">
+                        <label for="modal-emergency-protocol" class="modal-close" aria-label="Close modal">✖</label>
+                        <h3>Спешен Протокол при Енергиен Срив</h3>
+                        <p>Диаграма за спешни действия при енергиен спад.</p>
+                    </div>
                 </div>
             </div>
             <h3>Спешен Протокол при Енергиен Срив (при нужда)</h3>
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Техника</th>
-                        <th scope="row">Продължителност</th>
-                        <th scope="row">Изпълнение</th>
-                        <th scope="row">Ефект</th>
+                        <th scope="col">Техника</th>
+                        <th scope="col">Продължителност</th>
+                        <th scope="col">Изпълнение</th>
+                        <th scope="col">Ефект</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -370,9 +422,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Време</th>
-                        <th scope="row">Напомняне</th>
-                        <th scope="row">Действие</th>
+                        <th scope="col">Време</th>
+                        <th scope="col">Напомняне</th>
+                        <th scope="col">Действие</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -407,9 +459,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Метрика</th>
-                        <th scope="row">Скала</th>
-                        <th scope="row">Време за проверка</th>
+                        <th scope="col">Метрика</th>
+                        <th scope="col">Скала</th>
+                        <th scope="col">Време за проверка</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -432,9 +484,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope="row">Време</th>
-                        <th scope="row">Активност</th>
-                        <th scope="row">Детайли</th>
+                        <th scope="col">Време</th>
+                        <th scope="col">Активност</th>
+                        <th scope="col">Детайли</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -463,6 +515,75 @@
                 <li>Заредете в чантата си преносими закуски и добавки</li>
             </ul>
         </section>
+       <section id="energy-tracker">
+    <h2>🔋 Енергиен Тракър</h2>
+    <p>Проследявайте енергията и фокуса си три пъти дневно, за да оптимизирате продуктивността си.</p>
+    <div class="energy-tracker">
+        <div class="tracker-row">
+            <div class="tracker-label">Енергия (12:30):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select energy level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select energy level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select energy level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select energy level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select energy level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-row">
+            <div class="tracker-label">Фокус (12:30):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select focus level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select focus level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select focus level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select focus level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select focus level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-row">
+            <div class="tracker-label">Енергия (17:00):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select energy level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select energy level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select energy level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select energy level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select energy level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-row">
+            <div class="tracker-label">Фокус (17:00):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select focus level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select focus level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select focus level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select focus level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select focus level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-row">
+            <div class="tracker-label">Енергия (21:00):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select energy level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select energy level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select energy level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select energy level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select energy level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-row">
+            <div class="tracker-label">Фокус (21:00):</div>
+            <div class="tracker-scale">
+                <button type="button" class="energy-level" data-value="1" aria-label="Select focus level 1">1</button>
+                <button type="button" class="energy-level" data-value="2" aria-label="Select focus level 2">2</button>
+                <button type="button" class="energy-level" data-value="3" aria-label="Select focus level 3">3</button>
+                <button type="button" class="energy-level" data-value="4" aria-label="Select focus level 4">4</button>
+                <button type="button" class="energy-level" data-value="5" aria-label="Select focus level 5">5</button>
+            </div>
+        </div>
+        <div class="tracker-summary">
+            <p>Средна енергия и фокус: <span id="energy-average">N/A</span></p>
+        </div>
+    </div>
+</section>
     </main>
     <a href="#top" class="top-button" aria-label="Back to top">↑</a>
     <script src="script.js"></script>
